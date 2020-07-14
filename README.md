@@ -1,6 +1,10 @@
 # CarND-Path-Planning-Project
 Self-Driving Car Engineer Nanodegree Program
-   
+
+
+[image1]: ./images/First_4_32.PNG "Ego Car 4.32 miles limit"   
+[image2]: ./images/First_6_00.PNG "Ego Car 6 miles limit"   
+
 ### Simulator.
 You can download the Term3 Simulator which contains the Path Planning Project from the [releases tab (https://github.com/udacity/self-driving-car-sim/releases/tag/T3_v1.2).  
 
@@ -58,6 +62,19 @@ the path has processed since last time.
 #### Sensor Fusion Data, a list of all other car's attributes on the same side of the road. (No Noise)
 
 ["sensor_fusion"] A 2d vector of cars and then that car's [car's unique ID, car's x position in map coordinates, car's y position in map coordinates, car's x velocity in m/s, car's y velocity in m/s, car's s position in frenet coordinates, car's d position in frenet coordinates. 
+
+#### Implementation
+
+This model is generated to keep lane and change lane according to the circumstances. Keep lane mode is basically follow the lane and when there is an actor car going slower in the ego lane. The ego car should decrease and adapt its speed according to front actor car. 
+When there is a front actor car, The ego car should check the safety on the right and left lane. Whether actor cars on the right and left lane are in safe limit, Then the ego car change lane  with left priority. 
+
+The desired lane is decided the lane on the middle. Unless, there is no actor car around the ego car. It changes the lane to the middle.
+
+#### Simulation
+
+After lane change code is implemented, the ego car took miles over than 6 miles. As it can ben seen in below pictues.
+![alt text][image1]
+![alt text][image2]
 
 ## Details
 
